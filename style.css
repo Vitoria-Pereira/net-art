@@ -1,0 +1,102 @@
+@font-face{
+	font-family: Wordsoflove;
+	src: url(https://www.1001fonts.com/download/font/words-of-love.regular.ttf) format("truetype");
+}
+*{
+	box-sizing: border-box;
+}
+body{
+	background: #393939;
+	overflow: hidden;
+	font-family: Wordsoflove, Sans-serif;
+	margin: 0;
+}
+.imagens{
+	display: none;
+}
+.fas{
+	font-size: 24px;
+	padding: 8px 12px;
+	display: block;
+	text-align: center;
+}
+.botao{
+	cursor:pointer;
+	font-size: 24px;
+	color: #FF9DF2;
+	padding: 8px 12px;
+	position: absolute;
+	bottom: 20px;
+	z-index: 20;
+	right: 0;
+	text-align: center;
+}
+img{
+	width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+.slideshow{
+	max-width: 1920px;
+	position: relative;
+	top: -65px;
+	margin: 0;
+}
+.antes, .depois{
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	padding: 16px;
+	margin-top: -22px;
+	color:#FFFFFF;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+}
+.depois{
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+.antes:hover, .depois:hover{
+	background-color: rgba(241,96,227,0.44);
+}
+.escrita{
+	background-color: rgba(0,0,0,0.36);
+	color:#FF9DF2;
+	font-size: 20px;
+	padding: 8px 12px;
+	position: absolute;
+	bottom: 50px;
+	width: 100%;
+	text-align: center;
+}
+.pontos{
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	display: none;
+	margin: 0 2px;
+	background-color:#FFBBF8;
+	border-radius: 50%;
+	transition: background-color 0.6s ease;
+}
+.active, .pontos:hover{
+	background-color:#EA95EE;
+}
+.fade{
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+@-webkit-keyframes fade{
+	from{opacity: 0.4}
+	to{opacity: 1}
+}
+@keyframes fade{
+	from{opacity: 0.4}
+	to{opacity: 1}
+}

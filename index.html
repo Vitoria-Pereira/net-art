@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8" content="width=device-width, inicial-scale=1" name="viewport">
+	<script src="https://kit.fontawesome.com/e4ee09d5b6.js" crossorigin="anonymous"></script>
+<title>Anime Radio</title>
+</head>
+
+<body>
+	<div class="slideshow"> 
+		<div class="imagens fade">
+			<p class="escrita">Spirited Away - One Summer's Day</p>
+			<span class="botao" onClick="play(1)"><i class="fas fa-volume-up"></i></span>
+			<img src="imagens/spiritedaway.jpg" alt="">
+			<audio id="audio-1" class="audio">
+				<source src="songs/spiritedaway.mp3" type="audio/mpeg">
+			</audio>
+		</div>	
+		<div class="imagens fade">
+			<p class="escrita">Howl's Moving Castle - Merry Go Round of Life</p>
+			<span class="botao" onClick="play(2)"><i class="fas fa-volume-up"></i></span>
+			<img src="imagens/howls.jpg" alt="">
+			<audio id="audio-2" class="audio">
+				<source src="songs/howls.mp3" type="audio/mpeg">
+			</audio>
+		</div>
+		<div class="imagens fade">
+			<p class="escrita">Princess Mononoke - Departure to the West</p>
+			<span class="botao" onClick="play(3)"><i class="fas fa-volume-up"></i></span>
+			<img src="imagens/mononoke.jpg" alt="">
+			<audio id="audio-3" class="audio">
+				<source src="songs/mononoke.mp3" type="audio/mpeg">
+			</audio>
+		</div>
+		<div class="imagens fade">
+			<p class="escrita">My Neighbor Totoro - Path of the Wind</p>
+			<span class="botao" onClick="play(4)"><i class="fas fa-volume-up"></i></span>
+			<img src="imagens/totoro.jpg" alt="">
+			<audio id="audio-4" class="audio">
+				<source src="songs/totoro.mp3" type="audio/mpeg">
+			</audio>
+		</div>
+		<div class="imagens fade">
+			<p class="escrita">Your Name - Sparkle</p>
+			<span class="botao" onClick="play(5)"><i class="fas fa-volume-up"></i></span>
+			<img src="imagens/yourname.png" alt="">
+			<audio id="audio-5" class="audio">
+				<source src="songs/yourname.mp3" type="audio/mpeg">
+			</audio>
+		</div>
+		<div class="imagens fade">
+			<p class="escrita">Shingeki no Kyojin - Vogel Im Kafig</p>
+			<span class="botao" onClick="play(6)"><i class="fas fa-volume-up"></i></span>
+			<img src="imagens/aot.png" alt="">
+			<audio id="audio-6" class="audio">
+				<source src="songs/aot.mp3" type="audio/mpeg">
+			</audio>
+		</div>
+		<div class="imagens fade">
+			<p class="escrita">Kimetsu no Yaiba - Wisteria</p>
+			<span class="botao" onClick="play(7)"><i class="fas fa-volume-up"></i></span>
+			<img src="imagens/demonslayer.jpg" alt="">
+			<audio id="audio-7" class="audio">
+				<source src="songs/demonslayer.mp3" type="audio/mpeg">
+			</audio>
+		</div>
+		<div class="imagens fade">
+			<p class="escrita">Hunter x Hunter - Lamento for Piano</p>
+			<span class="botao" onClick="play(8)"><i class="fas fa-volume-up"></i></span>
+			<img src="imagens/hxh.jpg" alt="">
+			<audio id="audio-8" class="audio">
+				<source src="songs/hxh.mp3" type="audio/mpeg">
+			</audio>
+		</div>
+		<div class="imagens fade">
+			<p class="escrita">Sailor Moon - Star Locket Melody</p>
+			<span class="botao" onClick="play(9)"><i class="fas fa-volume-up"></i></span>
+			<img src="imagens/sailormoon.jpg" alt="">
+			<audio id="audio-9" class="audio">
+				<source src="songs/sailormoon.mp3" type="audio/mpeg">
+			</audio>
+		</div>
+		<div class="imagens fade">	
+			<p class="escrita">Violet Evergarden - Violet Snow for Orchestra</p>
+			<span class="botao" onClick="play(10)"><i class="fas fa-volume-up"></i></span>
+			<img src="imagens/violet.jpg" alt="">
+			<audio id="audio-10" class="audio">
+				<source src="songs/violet.mp3" type="audio/mpeg">
+			</audio>
+		</div>
+	</div>
+	<a class="antes" onclick="muda(-1)">&#10094;</a>
+	<a class="depois" onclick="muda(1)">&#10095;</a>
+	
+	<br>
+	<div style ="text-align: center">
+		<span class="pontos" onclick="atual(1)"></span>
+		<span class="pontos" onclick="atual(2)"></span>
+		<span class="pontos" onclick="atual(3)"></span>
+		<span class="pontos" onclick="atual(4)"></span>
+		<span class="pontos" onclick="atual(5)"></span>
+		<span class="pontos" onclick="atual(6)"></span>
+		<span class="pontos" onclick="atual(7)"></span>
+		<span class="pontos" onclick="atual(8)"></span>
+		<span class="pontos" onclick="atual(9)"></span>
+		<span class="pontos" onclick="atual(10)"></span>
+	</div>
+	<script>
+		function play(nr) {
+  			var audio = document.getElementById("audio-"+nr);
+			if(audio.className == "audio active")
+				{
+					audio.muted = "true";
+					audio.className = audio.className.replace(" active", "");
+					return;
+				}
+			else{
+				audio.className += " active";
+				audio.play();
+			} 
+		}
+	</script>
+	
+	<script>
+		var index = 1;
+		mostraImagem(index);
+		
+		function muda(n){
+			mostraImagem(index += n);
+		}
+		
+		function atual(n){
+			mostraImagem(index = n);
+		}
+		
+		function mostraImagem(n){
+			var i;
+			var imagem = document.getElementsByClassName("imagens");
+			var pontos = document.getElementsByClassName("pontos");
+			if (n > imagem.length){
+				index = 1;
+			}
+			if (n < 1){
+				index = imagem.length;
+			}
+			for(i = 0; i < imagem.length; i++){
+				imagem[i].style.display ="none";
+			}
+			for(i = 0; i < pontos.length; i++){
+				pontos[i].className = pontos[i].className.replace(" active", "");
+			}
+			imagem[index-1].style.display = "block";
+			pontos[index-1].className +=" active";
+		}
+	</script>
+</body>
+</html>
